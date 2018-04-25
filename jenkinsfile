@@ -1,0 +1,25 @@
+def workspace;
+node {
+  
+	stage('CheckOut')
+        {
+	   echo 'This is checkout'
+	   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/lapitus/JenkinsTest.git']]]) 
+	   workspace = pwd()
+        }
+
+	
+	stage('Static Code analisis')
+        { 
+  	   echo 'Static Code analisis'
+
+	}
+
+	stage('Final Stage')
+        { 
+  	   echo 'Final Stage'
+
+	}
+
+
+}
